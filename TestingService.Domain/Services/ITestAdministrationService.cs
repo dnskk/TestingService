@@ -1,16 +1,16 @@
 ﻿using TestingService.Domain.Entities.TestInfo;
 
-namespace TestingService.Domain.Repositories
+namespace TestingService.Domain.Services
 {
     /// <summary>
-    /// Test repository.
+    /// Test administration service.
     /// </summary>
-    public interface ITestRepository
+    public interface ITestAdministrationService
     {
         /// <summary>
         /// Get test by ID.
         /// </summary>
-        TestInfo Get(string id);
+        TestInfo Get(string testId);
 
         /// <summary>
         /// Create new test.
