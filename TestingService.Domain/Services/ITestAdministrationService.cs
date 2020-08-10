@@ -10,16 +10,16 @@ namespace TestingService.Domain.Services
         /// <summary>
         /// Get test by ID.
         /// </summary>
-        TestInfo Get(string testId);
+        TestInfo GetTest(string testId);
 
         /// <summary>
         /// Create new test.
         /// </summary>
-        TestInfo Create(TestInfo newTestInfo);
+        TestInfo CreateTest(TestInfo newTestInfo);
 
         /// <summary>
         /// Update test.
         /// </summary>
-        TestInfo Update(TestInfo testInfo);
+        TestInfo UpdateTest(TestInfo testInfo);
     }
 }
