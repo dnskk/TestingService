@@ -1,5 +1,4 @@
 ﻿using TestingService.Domain.Entities.TestInfo;
-using TestingService.Domain.Repositories.Entities.TestInfo;
 
 namespace TestingService.Domain.Repositories
 {
@@ -14,19 +13,19 @@ namespace TestingService.Domain.Repositories
         }
 
         /// <inheritdoc />
-        public Test Get(string id)
+        public TestInfo Get(string id)
         {
             throw new System.NotImplementedException();
         }
 
         /// <inheritdoc />
-        public Test Create(Test newTestInfo)
+        public TestInfo Create(TestInfo newTestInfo)
         {
             throw new System.NotImplementedException();
         }
 
         /// <inheritdoc />
-        public Test Update(Test testInfo)
+        public TestInfo Update(TestInfo testInfo)
         {
             throw new System.NotImplementedException();
         }

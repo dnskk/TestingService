@@ -1,5 +1,4 @@
 ﻿using TestingService.Domain.Entities.Session;
-using Session = TestingService.Domain.Repositories.Entities.Session.Session;
 
 namespace TestingService.Domain.Repositories
 {
