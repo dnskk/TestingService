@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using TestingService.Domain.Entities.TestInfo;
 using TestingService.Domain.Repositories;
 
@@ -15,21 +16,27 @@ namespace TestingService.Domain.Services
         }
 
         /// <inheritdoc />
-        public TestInfo GetTest(string testId)
+        public async Task<TestInfo> GetTest(string testId, CancellationToken token)
         {
-            throw new NotImplementedException();
+            var result = await _testRepository.Get(testId, token);
+
+            return result;
         }
 
         /// <inheritdoc />
-        public TestInfo CreateTest(TestInfo newTestInfo)
+        public async Task<TestInfo> CreateTest(TestInfo newTestInfo, CancellationToken token)
         {
-            throw new NotImplementedException();
+            var result = await _testRepository.Create(newTestInfo, token);
+
+            return result;
         }
 
         /// <inheritdoc />
-        public TestInfo UpdateTest(TestInfo testInfo)
+        public async Task<TestInfo> UpdateTest(TestInfo testInfo, CancellationToken token)
         {
-            throw new NotImplementedException();
+            var result = await _testRepository.Update(testInfo, token);
+
+            return result;
         }
     }
 }

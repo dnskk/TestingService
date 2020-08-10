@@ -1,4 +1,6 @@
-﻿using TestingService.Domain.Entities.TestInfo;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using TestingService.Domain.Entities.TestInfo;
 
 namespace TestingService.Domain.Services
 {
@@ -10,16 +12,16 @@ namespace TestingService.Domain.Services
         /// <summary>
         /// Get test by ID.
         /// </summary>
-        TestInfo GetTest(string testId);
+        Task<TestInfo> GetTest(string testId, CancellationToken token);
 
         /// <summary>
         /// Create new test.
         /// </summary>
-        TestInfo CreateTest(TestInfo newTestInfo);
+        Task<TestInfo> CreateTest(TestInfo newTestInfo, CancellationToken token);
 
         /// <summary>
         /// Update test.
         /// </summary>
-        TestInfo UpdateTest(TestInfo testInfo);
+        Task<TestInfo> UpdateTest(TestInfo testInfo, CancellationToken token);
     }
 }
