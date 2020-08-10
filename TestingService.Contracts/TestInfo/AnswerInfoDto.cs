@@ -13,7 +13,7 @@
         /// <summary>
         /// Answer value.
         /// </summary>
-        public string Answer { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Is the answer correct.

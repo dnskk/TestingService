@@ -13,7 +13,7 @@
         /// <summary>
         /// Question value.
         /// </summary>
-        public string Question { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Answers.
