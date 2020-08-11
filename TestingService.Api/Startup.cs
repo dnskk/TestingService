@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using TestingService.Api.Mapping;
 using TestingService.Domain.Repositories;
 using TestingService.Domain.Services;
+using TestingService.Domain.Services.Validators;
 
 namespace TestingService.Api
 {
@@ -20,7 +21,6 @@ namespace TestingService.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -29,6 +29,7 @@ namespace TestingService.Api
             services.Configure<TestRepositoryOptions>(Configuration.GetSection(nameof(TestRepositoryOptions)));
             services.AddSingleton(p => p.GetRequiredService<IOptions<TestRepositoryOptions>>().Value);
             services.AddSingleton<ITestRepository, TestRepository>();
+            services.AddSingleton<ITestInfoValidator, TestInfoValidator>();
             services.AddSingleton<ITestAdministrationService, TestAdministrationService>();
 
             services.Configure<SessionRepositoryOptions>(Configuration.GetSection(nameof(SessionRepositoryOptions)));
@@ -37,7 +38,6 @@ namespace TestingService.Api
             services.AddSingleton<ISessionService, SessionService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
