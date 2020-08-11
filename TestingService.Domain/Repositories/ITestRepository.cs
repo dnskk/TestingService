@@ -12,16 +12,16 @@ namespace TestingService.Domain.Repositories
         /// <summary>
         /// Get test by ID.
         /// </summary>
-        Task<TestInfo> Get(string id, CancellationToken token);
+        Task<TestInfo> GetAsync(string id, CancellationToken token);
 
         /// <summary>
         /// Create new test.
         /// </summary>
-        Task<TestInfo> Create(TestInfo newTestInfo, CancellationToken token);
+        Task<TestInfo> CreateAsync(TestInfo newTestInfo, CancellationToken token);
 
         /// <summary>
         /// Update test.
         /// </summary>
-        Task<TestInfo> Update(TestInfo testInfo, CancellationToken token);
+        Task<TestInfo> UpdateAsync(TestInfo testInfo, CancellationToken token);
     }
 }

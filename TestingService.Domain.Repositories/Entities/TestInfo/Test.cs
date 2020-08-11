@@ -23,6 +23,6 @@ namespace TestingService.Domain.Repositories.Entities.TestInfo
         /// <summary>
         /// Questions.
         /// </summary>
-        public Question Questions { get; set; }
+        public Question[] Questions { get; set; }
     }
 }

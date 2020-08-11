@@ -6,6 +6,6 @@
 
         public string Title { get; set; }
 
-        public Question Questions { get; set; }
+        public Question[] Questions { get; set; }
     }
 }

@@ -16,25 +16,25 @@ namespace TestingService.Domain.Services
         }
 
         /// <inheritdoc />
-        public async Task<TestInfo> GetTest(string testId, CancellationToken token)
+        public async Task<TestInfo> GetTestAsync(string testId, CancellationToken token)
         {
-            var result = await _testRepository.Get(testId, token);
+            var result = await _testRepository.GetAsync(testId, token);
 
             return result;
         }
 
         /// <inheritdoc />
-        public async Task<TestInfo> CreateTest(TestInfo newTestInfo, CancellationToken token)
+        public async Task<TestInfo> CreateTestAsync(TestInfo newTestInfo, CancellationToken token)
         {
-            var result = await _testRepository.Create(newTestInfo, token);
+            var result = await _testRepository.CreateAsync(newTestInfo, token);
 
             return result;
         }
 
         /// <inheritdoc />
-        public async Task<TestInfo> UpdateTest(TestInfo testInfo, CancellationToken token)
+        public async Task<TestInfo> UpdateTestAsync(TestInfo testInfo, CancellationToken token)
         {
-            var result = await _testRepository.Update(testInfo, token);
+            var result = await _testRepository.UpdateAsync(testInfo, token);
 
             return result;
         }

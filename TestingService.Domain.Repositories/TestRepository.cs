@@ -24,7 +24,7 @@ namespace TestingService.Domain.Repositories
         }
 
         /// <inheritdoc />
-        public async Task<TestInfo> Get(string id, CancellationToken token)
+        public async Task<TestInfo> GetAsync(string id, CancellationToken token)
         {
             var result = await _tests.FindAsync(p => p.Id == id, null, token);
             var testInfoMongo = result.FirstOrDefault();
@@ -33,7 +33,7 @@ namespace TestingService.Domain.Repositories
         }
 
         /// <inheritdoc />
-        public async Task<TestInfo> Create(TestInfo newTestInfo, CancellationToken token)
+        public async Task<TestInfo> CreateAsync(TestInfo newTestInfo, CancellationToken token)
         {
             var testInfoMongo = _mapper.Map<TestInfoMongo>(newTestInfo);
 
@@ -48,7 +48,7 @@ namespace TestingService.Domain.Repositories
         }
 
         /// <inheritdoc />
-        public async Task<TestInfo> Update(TestInfo testInfo, CancellationToken token)
+        public async Task<TestInfo> UpdateAsync(TestInfo testInfo, CancellationToken token)
         {
             var testInfoMongo = _mapper.Map<TestInfoMongo>(testInfo);
 

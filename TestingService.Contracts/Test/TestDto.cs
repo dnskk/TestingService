@@ -6,6 +6,6 @@
 
         public string Title { get; set; }
 
-        public QuestionDto Questions { get; set; }
+        public QuestionDto[] Questions { get; set; }
     }
 }

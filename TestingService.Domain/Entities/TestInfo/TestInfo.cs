@@ -18,6 +18,6 @@
         /// <summary>
         /// Questions.
         /// </summary>
-        public QuestionInfo Questions { get; set; }
+        public QuestionInfo[] Questions { get; set; }
     }
 }

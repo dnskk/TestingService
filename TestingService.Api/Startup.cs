@@ -1,19 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using TestingService.Api.Mapping;
+using TestingService.Domain.Repositories;
+using TestingService.Domain.Services;
 
-namespace TestingService
+namespace TestingService.Api
 {
     public class Startup
     {
@@ -29,6 +25,11 @@ namespace TestingService
         {
             services.AddControllers();
             services.AddAutoMapper(c => c.AddProfile<AutoMapping>(), typeof(Startup));
+
+            services.Configure<TestRepositoryOptions>(Configuration.GetSection(nameof(TestRepositoryOptions)));
+            services.AddSingleton(p => p.GetRequiredService<IOptions<TestRepositoryOptions>>().Value);
+            services.AddSingleton<ITestRepository, TestRepository>();
+            services.AddSingleton<ITestAdministrationService, TestAdministrationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
