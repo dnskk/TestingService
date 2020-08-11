@@ -61,6 +61,7 @@ namespace TestingService.Domain.Services
 
             await CheckAnswers(result, token);
 
+            result = await _sessionRepository.UpdateAsync(result, token);
             return result;
         }
 
