@@ -1,4 +1,6 @@
-﻿using TestingService.Domain.Entities.Session;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using TestingService.Domain.Entities.Session;
 using TestingService.Domain.Entities.Test;
 
 namespace TestingService.Domain.Services
@@ -11,21 +13,21 @@ namespace TestingService.Domain.Services
         /// <summary>
         /// Get test session by ID.
         /// </summary>
-        Session GetSession(string sessionId);
+        Task<Session> GetSessionAsync(string sessionId, CancellationToken token);
 
         /// <summary>
         /// Create new test session.
         /// </summary>
-        Session CreateSession(Session newSession);
-
-        /// <summary>
-        /// Update test session.
-        /// </summary>
-        Session UpdateSession(Session session);
+        Task<Session> CreateSessionAsync(Session newSession, CancellationToken token);
 
         /// <summary>
         /// Get test by session ID.
         /// </summary>
-        Test GetTest(string sessionId);
+        Task<Test> GetTestAsync(string sessionId, CancellationToken token);
+
+        /// <summary>
+        /// Complete test session.
+        /// </summary>
+        Task<Session> CompleteSessionAsync(Session session, CancellationToken token);
     }
 }

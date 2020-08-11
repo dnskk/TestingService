@@ -30,6 +30,11 @@ namespace TestingService.Api
             services.AddSingleton(p => p.GetRequiredService<IOptions<TestRepositoryOptions>>().Value);
             services.AddSingleton<ITestRepository, TestRepository>();
             services.AddSingleton<ITestAdministrationService, TestAdministrationService>();
+
+            services.Configure<SessionRepositoryOptions>(Configuration.GetSection(nameof(SessionRepositoryOptions)));
+            services.AddSingleton(p => p.GetRequiredService<IOptions<SessionRepositoryOptions>>().Value);
+            services.AddSingleton<ISessionRepository, SessionRepository>();
+            services.AddSingleton<ISessionService, SessionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
